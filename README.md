@@ -1,36 +1,37 @@
 ## Userテーブル
 
-|Column            |Type     |Options      |
-|------------------|---------|-------------|
-| nickname         | string  | null: false |
-| emaile           | string  | null: false |
-| password         | string  | null: false |
-| family_name      | string  | null: false |
-| first_name       | string  | null: false |
-| family_name_kana | stiring | null: false |
-| first_name_kana  | stiring | null: false |
-| birth_day        | string  | null: false |
+|Column                      |Type     |Options       |
+|----------------------------|---------|------------- |
+| nickname                   | string  | null: false  |
+| emaile                     | string  | unique: true |
+| encrypted_password         | string  | null: false  |
+| family_name                | string  | null: false  |
+| first_name                 | string  | null: false  |
+| family_name_kana           | string  | null: false  |
+| first_name_kana            | string  | null: false  |
+| date                       | string  | null: false  |
 
 
 
 ### Association
 has_many   :items
-has_one :purchuse
+has_many :purchuses
 
 
 ## Itemテーブル
 
-|Column         |Type        |Options           |
-|---------------|------------|------------------|
-| name          | string     | null: false      |
-| price         | integer    | null: false      |
-| description   | string     | null: false      | 
-| status        | string     | null: false      |
-| shipping_cost | string     | null: false      |
-| shipping_days | string     | null: false      |
-| category_id   | string     | null: false      |
-| user_id       | references | foreign_key: true|
-| category_id   | references | foreign_key: true|
+|Column            |Type        |Options           |
+|------------------|------------|------------------|
+| name             | string     | null: false      |
+| price            | integer    | null: false      |
+| description      | string     | null: false      | 
+| status_id        | string     | null: false      |
+| shipping_cost_id | string     | null: false      |
+| shipping_day_id  | string     | null: false      |
+| prefecture_id    | string     | null: false      |
+| category_id      | string     | null: false      |
+| user_id          | references | foreign_key: true|
+| category_id      | references | foreign_key: true|
 
 
 
@@ -45,17 +46,12 @@ has_many   :categorys
 
 |Column            |Type        |Options           |
 |------------------|------------|------------------|
-| family_name      | string     | null: false      |
-| first_name       | string     | null: false      |
-| family_name_kana | stiring    | null: false      |
-| first_name_kana  | stiring    | null: false      |
 | user_id          | references | foreign_key; true|
 | item_id          | references | foreign_key; true|
-| destination      | references | foreign_key; true|
+
 
 ### Association
 belongs_to :user
-has_one    :destination
 has_many   :items
 
 
@@ -64,10 +60,10 @@ has_many   :items
 |Column        |Type        |Options           |
 |--------------|------------|------------------|
 | post_code    |string      | null: false      |
-| prefecture   |string      | null: false      |
+| prefecture_id|integer     | null: false      |
 | city         |string      | null: false      |
 | address      |string      | null: false      |
-| building_name|string      | null: false      |
+| building_name|string      |                  |
 | phone_number |string      | null: false      |
 | purchase     | references | foreign_key; true|
 
@@ -75,15 +71,3 @@ has_many   :items
 
 ### Association
 belongs_to :purchase
-
-## Categoryテーブル
-
-|Column    |Type    |Options      |
-|----------|--------|-------------|
-| name     | string | null: false |
-| ancestry |        |             |
-
-
-### Association
-
-belongs_to :item
