@@ -30,7 +30,7 @@ has_many :purchuses
 | shipping_day_id  | integer    | null: false      |
 | prefecture_id    | integer    | null: false      |
 | category_id      | integer    | null: false      |
-| user_id          | integer    | foreign_key: true|
+| user             | references | foreign_key: true|
 
 
 
@@ -46,8 +46,8 @@ has_one    :purchase
 
 |Column            |Type        |Options           |
 |------------------|------------|------------------|
-| user_id          | integer    | foreign_key; true|
-| item_id          | integer    | foreign_key; true|
+| user             | references | foreign_key; true|
+| item             | references | foreign_key; true|
 
 
 ### Association
