@@ -132,10 +132,11 @@ describe User do
        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is invalid")
       end
 
-      it "passwordがz全角英数字のみの場合登録できない"do
+      it "passwordが全角英数字のみの場合登録できない"do
       @user.password = "AAA111"
        @user.valid?
-       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is invalid")
+       
+       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
 
       it 'password_confirmationが空では登録できないこと' do
