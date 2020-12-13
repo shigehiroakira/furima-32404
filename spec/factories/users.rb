@@ -9,7 +9,7 @@ FactoryBot.define do
     
     family_name_kana  {Gimei.last.katakana}
     first_name_kana   {Gimei.first.katakana}
-    birthday                {"1930-01-01"}
+    birthday           {Faker::Date.between(from: '1030-01-01', to: '2015-12-31')}
 
     email                 {Faker::Internet.free_email}
     password              {Faker::Internet.password(min_length: 6)}
