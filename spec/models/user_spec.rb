@@ -133,7 +133,7 @@ describe User do
       end
 
       it "passwordがz全角英数字のみの場合登録できない"do
-      @user.password = "AAAAAA"
+      @user.password = "AAA111"
        @user.valid?
        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is invalid")
       end
