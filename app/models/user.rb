@@ -5,9 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
       validates :nickname, presence: true
-      validates :family_name, presence: true
-      validates :first_name, presence: true
-      validates :family_name_kana, presence: true
-      validates :first_name_kana, presence: true
+
+      with_options presence: true, format: {with:/\A[ぁ-んァ-ン一-龥]/, message: '全角ひらがな・カタカナ・漢字で入力してください' } do
+        validates :family_name
+        validates :first_name
+      end
+
+      with_options presence: true, format: { with:/\A[ァ-ヶー－]+\z/, message: '全角カタカナで入力してください' } do
+        validates :family_name_kana
+        validates :first_name_kana
+      end
+
       validates :birthday, presence: true
 end

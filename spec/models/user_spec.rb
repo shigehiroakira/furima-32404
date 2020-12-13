@@ -14,6 +14,46 @@ describe User do
       expect(@user).to be_valid
       end
 
+      it "family_nameがひらがなであれば登録される"do
+      @user.family_name = "あああ"
+      expect(@user).to be_valid
+      end
+
+      it "first_nameがひらがなであれば登録される"do
+      @user.first_name = "あああ"
+      expect(@user).to be_valid
+      end
+
+      it "family_nameがカタカナであれば登録される"do
+      @user.family_name = "アアア"
+      expect(@user).to be_valid
+      end
+
+      it "first_nameがカタカナであれば登録される"do
+      @user.first_name = "アアア"
+      expect(@user).to be_valid
+      end
+
+      it "family_nameが漢字であれば登録される"do
+      @user.family_name = "亜亜亜"
+      expect(@user).to be_valid
+      end
+
+      it "first_nameが漢字であれば登録される"do
+      @user.first_name = "亜亜亜"
+      expect(@user).to be_valid
+      end
+
+      it "family_name_kanaがカタカナであれば登録される"do
+      @user.family_name_kana = "アアア"
+      expect(@user).to be_valid
+      end
+
+      it "first_name_kanaがカタカナであれば登録される"do
+      @user.first_name_kana = "アアア"
+      expect(@user).to be_valid
+      end
+
       it "emailが必須"do
       @user.email = "test@test"
       expect(@user).to be_valid
