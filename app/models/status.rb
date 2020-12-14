@@ -2,7 +2,7 @@ class Status < ActiveHash::Base
 
   self.data = [
 
-   
+    {id: 0, date: "__"},
     {id: 1, date: "新品、未使用"},
     {id: 2, date: "未使用に近い"},
     {id: 3, date: "目立った傷や汚れなし"},

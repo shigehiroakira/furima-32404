@@ -4,11 +4,11 @@ class Item < ApplicationRecord
     validates :name
     validates :price
     validates :description
-    validates :category_id, numericality: { other_than: 1 } 
-    validates :status_id, numericality: { other_than: 1 } 
-    validates :shipping_cost_id, numericality: { other_than: 1 } 
-    validates :prefecture_id, numericality: { other_than: 1 } 
-    validates :shipping_day_id, numericality: { other_than: 1 } 
+    validates :category_id, numericality: { other_than: 0} 
+    validates :status_id, numericality: { other_than: 0 } 
+    validates :shipping_cost_id, numericality: { other_than: 0 } 
+    validates :prefecture_id, numericality: { other_than: 0 } 
+    validates :shipping_day_id, numericality: { other_than: 0 } 
   end
 
 
