@@ -37,7 +37,7 @@ RSpec.describe Item, type: :model do
       end
 
       it "category_idが0だとと出品されない"do
-      @item.category_id  = "0"
+      @item.category_id  = 0
       @item.valid?
       expect(@item.errors.full_messages).to include("Category must be other than 0")
       end
@@ -49,7 +49,7 @@ RSpec.describe Item, type: :model do
       end
 
       it "status_idが0だと出品されない"do
-      @item.status_id  = "0"
+      @item.status_id  = 0
       @item.valid?
       expect(@item.errors.full_messages).to include("Status must be other than 0")
       end
@@ -61,7 +61,7 @@ RSpec.describe Item, type: :model do
       end
 
       it "shipping_cost_idが0だと出品できない"do
-      @item.shipping_cost_id  = "0"
+      @item.shipping_cost_id  = 0
       @item.valid?
       expect(@item.errors.full_messages).to include("Shipping cost must be other than 0")
       end
@@ -73,7 +73,7 @@ RSpec.describe Item, type: :model do
       end
 
       it "prefecture_idが0だと出品できない"do
-      @item.prefecture_id  = "0"
+      @item.prefecture_id  = 0
       @item.valid?
       expect(@item.errors.full_messages).to include("Prefecture must be other than 0")
       end
@@ -85,7 +85,7 @@ RSpec.describe Item, type: :model do
       end
 
       it "shipping_day_idが0だと出品できない"do
-      @item.shipping_day_id  = "0"
+      @item.shipping_day_id  = 0
       @item.valid?
       expect(@item.errors.full_messages).to include("Shipping day must be other than 0")
       end
@@ -104,13 +104,13 @@ RSpec.describe Item, type: :model do
       end
 
       it "価格が、299円だと保存はされない"do
-      @item.price ="299"
+      @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is not included in the list")
       end
 
       it "価格が、100,000000円だと保存はされない"do
-      @item.price ="100000000"
+      @item.price = 100000000
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is not included in the list")
       end
