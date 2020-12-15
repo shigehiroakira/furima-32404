@@ -100,8 +100,20 @@ RSpec.describe Item, type: :model do
       @item.price = "１０００"
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is invalid")
-      
       end
+  
+      it "販売価格が半角英字だと出品されない"do
+      @item.price = "aaaaaa"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is invalid")
+      end
+
+      it "販売価格が半角英数が混合だとだと出品されない"do
+      @item.price = "aaa111"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is invalid")
+      end
+
 
       it "価格が、299円だと保存はされない"do
       @item.price = 299
