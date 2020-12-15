@@ -2,21 +2,24 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :name
+    validates :description
+    validates :image
 
     with_options presence: true, format: {with:/\A([1-9]\d*,)*[1-9]\d*\z/} do
-      validates :price
+     validates :price
     end
-    validates :price, inclusion: { in: 300..99999999 }
+     validates :price, inclusion: { in: 300..99999999 }
     
-    validates :description
-    validates :category_id, numericality: { other_than: 0} 
-    validates :status_id, numericality: { other_than: 0 } 
-    validates :shipping_cost_id, numericality: { other_than: 0 } 
-    validates :prefecture_id, numericality: { other_than: 0 } 
-    validates :shipping_day_id, numericality: { other_than: 0 }
-    validates :image 
-  end
+     with_options numericality: { other_than: 0} do
+    
+      validates :category_id
+      validates :status_id 
+      validates :shipping_cost_id
+      validates :prefecture_id
+      validates :shipping_day_id
+     end
 
+  end
 
   belongs_to :user
   has_one_attached :image
@@ -27,4 +30,5 @@ class Item < ApplicationRecord
   belongs_to :Prefecture
   belongs_to :shipping_cost
   belongs_to :shipping_day
+
 end
