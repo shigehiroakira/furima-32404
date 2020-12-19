@@ -1,8 +1,8 @@
 class PurchasesController < ApplicationController
+  before_action :set_item, only: [:index,:create]
+
   def index
     @user_purchase = UserPurchase.new
-    @item = Item.find(params[:item_id])
-    @user_purchases = @item.user_purchases.includes(:user)
    end
 
   def create
@@ -21,4 +21,9 @@ class PurchasesController < ApplicationController
    def purchase_params
     params.require(:user_purchase).permit(:post_code, :prefecture_id, :city,:address, :house_number, :building_name,:phone_number).merge(item_id:params[:item_id],user_id: current_user.id)
    end
+
+   def set_item
+    @item = Item.find(params[:item_id])
+   end
+   
 end
