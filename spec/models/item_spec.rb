@@ -8,6 +8,7 @@ RSpec.describe Item, type: :model do
   describe '出品された商品の保存' do
     context '出品された商品が保存できる場合' do
       it '全てが入力されていれば保存できる' do
+        expect(@item).to be_valid
       end
     end
 

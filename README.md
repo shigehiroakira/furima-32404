@@ -53,10 +53,10 @@ has_one    :purchase
 ### Association
 belongs_to :user
 belongs_to :item
-has_one    :destinaition
+has_one    :address
 
 
-## Destinaitionテーブル
+## Addressテーブル
 
 |Column        |Type        |Options           |
 |--------------|------------|------------------|
