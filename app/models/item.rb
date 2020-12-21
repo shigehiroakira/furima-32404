@@ -22,7 +22,6 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   has_one :purchase
-  has_one :address
 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
