@@ -11,3 +11,12 @@ ja:
      tweet:
        text: テキスト
        image: 画像 
+     item:
+      name: 名前
+      price: 値段
+      description: 商品の説明
+      status_id: 商品の状態
+      shipping_cost_id: 配送料
+      shipping_day_id: 配送日数
+      prefecture_id: 発送元の地域
+      category_id: カテゴリー
