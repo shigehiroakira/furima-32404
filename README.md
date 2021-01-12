@@ -84,7 +84,8 @@ DM機能の追加を考えています。出品者と購入者がチャットで
  
 ## データベース設計
  
- ER図を添付
+ ER図をご覧ください  
+ https://gyazo.com/0b7feb0daa6518ce8030b98c8c14b03c
  
 ## ローカルでの作業方法
 git clone https://github.com/YYYYYY/XXXXX.git
