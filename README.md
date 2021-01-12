@@ -16,7 +16,7 @@
 ### Association
 has_many   :items
 has_many :purchuses
-
+has_many :sns_credentials
 
 ## Itemテーブル
 
@@ -74,3 +74,13 @@ has_one    :address
 belongs_to :purchase
 
 
+## sns_credentialテーブル
+
+|Column        |Type        |Options           |
+|--------------|------------|------------------|
+| provider     |string      | null: false      |
+| uid          |integer     | null: false      |
+| user         | references | foreign_key; true|
+
+### Association
+belongs_to :user
